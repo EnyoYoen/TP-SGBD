@@ -7,7 +7,3 @@
 SELECT l.city, l.province, l.country, c.area
     FROM located l, Country c
     WHERE c.code = l.country AND l.lake IS NOT NULL AND l.lake = 'Lake Michigan';
-
-SELECT l.city, l.province, l.country, area
-FROM located l, country c
-WHERE c.code = l.country AND l.lake = 'Lake Michigan';
