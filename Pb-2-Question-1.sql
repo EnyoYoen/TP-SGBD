@@ -10,3 +10,10 @@ SELECT name, COUNT(PROVINCE)
     GROUP BY NAME
     HAVING COUNT(PROVINCE) >= 5
     ORDER BY COUNT(PROVINCE) DESC;
+
+
+SELECT lake, count(province)
+FROM geo_lake
+GROUP BY lake
+HAVING count(province) >= 5
+ORDER BY count(province) DESC;

@@ -4,10 +4,23 @@
 -- Membre 2 : 4028437		   Michaud	William
 
 -- Probleme 2 - Question 2 : Nom des lacs de plus de 50000 $km^{2}
-SELECT DISTINCT l.NAME
-    FROM Lake l, geo_lake g 
-    WHERE l.NAME = g.LAKE AND l.AREA >= 50000 AND (g.PROVINCE, g.COUNTRY) NOT IN (
-        SELECT province, country
-        FROM geo_mountain
-    )
-    ORDER BY l.NAME ASC;
+select distinct l.name
+  from lake l,
+       geo_lake g
+ where l.name = g.lake
+   and l.area >= 50000
+   and ( g.province,
+         g.country ) not in (
+   select province,
+          country
+     from geo_mountain
+)
+ order by l.name asc;
+
+select distinct name
+  from lake,
+       geo_lake l
+ where lake = name
+   and area >= 50000
+   and (l.country, l.province) not in (select country, province FROM geo_mountain)
+   ORDER BY name ASC;

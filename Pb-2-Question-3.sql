@@ -23,10 +23,11 @@ select distinct l.name
 )
  order by l.name asc;
 
-select name
-  from lake
- where name not in (
-   select l.lake
+select DISTINCT name
+  from lake, geo_lake
+ where name = geo_lake.lake and
+ (name, province, country) not in (
+   select l.lake, l.PROVINCE, l.COUNTRY
      from geo_lake l,
           geo_mountain m
     where l.province = m.province

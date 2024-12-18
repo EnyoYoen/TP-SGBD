@@ -18,3 +18,10 @@ SELECT c.name
         ) s
     );
     
+
+SELECT c.name
+FROM country c, geo_lake l, lake ll
+WHERE c.code = l.country AND lake = ll.name
+GROUP BY c.name
+ORDER BY SUM(ll.area) DESC
+FETCH FIRST ROW ONLY;
