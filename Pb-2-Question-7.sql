@@ -8,10 +8,10 @@ SELECT c.name
     FROM geo_lake g, Lake l, Country c
     WHERE l.name = g.lake AND c.code = g.country
     GROUP BY g.country, c.name
-    HAVING SUM(l.area) = (
-        SELECT MAX(s.somme)
+    HAVING SUM(l.area) = ( -- On verifie que la somme des superficies est egale au max
+        SELECT MAX(s.somme) -- On recupere le maximum des superficies
         FROM (
-            SELECT SUM(area) AS somme
+            SELECT SUM(area) AS somme -- On recupere la somme de la superficie des lacs pour chaque pays
             FROM geo_lake, Lake
             WHERE lake = name
             GROUP BY country
