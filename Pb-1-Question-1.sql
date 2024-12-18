@@ -1,8 +1,7 @@
 -- Contrôle de TP
 --            NumEtudiant      Nom      Prénom 
--- Membre 1 : 
+-- Membre 1 : 04028297         Peyrot   Yoen
 -- Membre 2 : 4028437			Michaud	William
--- Membre 3 : 
 
 -- Probleme 1 - Question 1 : Donnez le code permettant de créer les tables correspondantes sous Oracle.
 
@@ -40,8 +39,8 @@ CREATE TABLE Projection (
 	idSalles INT,
 	idFilms INT,
 	dateProjection DATE,
-	heureDebut TIME,
-	heureFin TIME,
+	heureDebut TIMESTAMP, -- en heure locale
+	heureFin TIMESTAMP, -- en heure locale
 	PRIMARY KEY (idSalles, idFilms),
 	FOREIGN KEY (idSalles) REFERENCES Salle(idSalle),
 	FOREIGN KEY (idFilms) REFERENCES Film(idFilm)
