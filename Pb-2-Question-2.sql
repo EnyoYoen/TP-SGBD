@@ -19,8 +19,14 @@ select distinct l.name
 
 select distinct name
   from lake,
-       geo_lake l
+       geo_lake l,
+       geo_mountain m
  where lake = name
    and area >= 50000
-   and (l.country, l.province) not in (select country, province FROM geo_mountain)
-   ORDER BY name ASC;
+   and ( l.country,
+         l.province ) not in (
+   select country,
+          province
+     from geo_mountain
+)
+ order by name asc;
