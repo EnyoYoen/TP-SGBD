@@ -18,3 +18,5 @@ DROP TABLE Film;
 DROP TABLE Salle;
 DROP TABLE Cinema;
 DROP TABLE Artiste;
+
+COMMIT;
