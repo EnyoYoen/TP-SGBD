@@ -34,3 +34,10 @@ select DISTINCT name
       and l.country = m.country
 )
  order by name asc;
+SELECT DISTINCT lake
+    FROM geo_lake
+    WHERE (province, country) NOT IN (
+        SELECT province, country
+        FROM geo_mountain
+    )
+    ORDER BY lake ASC;
